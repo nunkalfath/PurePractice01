@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
-const Home = props => {
+const HomeScreen = props => {
   const {navigation} = props;
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -17,4 +17,4 @@ const Home = props => {
   );
 };
 
-export default Home;
+export default HomeScreen;

@@ -1,11 +1,19 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import 'react-native-gesture-handler';
+
 import DetailsScreen from './src/screens/DetailsScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+import ExploreScreen from './src/screens/ExploreScreen';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 // function HomeScreen(props) {
 //   const {navigation} = props;
@@ -75,11 +83,12 @@ const App = () => {
         }}>
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
+          component={DrawerNavigation}
           options={{
             title: 'Overview',
           }}
         />
+
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -87,3 +96,22 @@ const App = () => {
 };
 
 export default App;
+
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Explore" component={ExploreScreen} />
+    </Tab.Navigator>
+  );
+};
+
+const DrawerNavigation = () => {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Details" component={DetailsScreen} />
+    </Drawer.Navigator>
+  );
+};
