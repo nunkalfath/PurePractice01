@@ -1,89 +1,19 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
-// import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
+import React from 'react';
+import 'react-native-gesture-handler';
+import MainTabScreen from './src/screens/MainTabScreen';
 
-import HomeScreen from './src/screens/HomeScreen';
-import DetailsScreen from './src/screens/DetailsScreen';
-// import SettingsScreen from './src/screens/SettingsScreen';
-// import ExploreScreen from './src/screens/ExploreScreen';
-
-const HomeStack = createStackNavigator();
-const DetailsStack = createStackNavigator();
-// const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
-
-const HomeStackScreen = ({navigation}) => (
-  <HomeStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: '#008397',
-      },
-      headerTintColor: 'white',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        textAlign: 'center',
-      },
-    }}>
-    <HomeStack.Screen
-      name="Home"
-      component={HomeScreen}
-      options={{
-        title: 'Overview',
-        headerLeft: () => (
-          <Icon.Button
-            name="bars"
-            size={20}
-            backgroundColor="#008397"
-            onPress={() => {
-              navigation.openDrawer();
-            }}></Icon.Button>
-        ),
-      }}
-    />
-  </HomeStack.Navigator>
-);
-
-const DetailsStackScreen = ({navigation}) => (
-  <DetailsStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: '#008397',
-      },
-      headerTintColor: 'white',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        textAlign: 'center',
-      },
-    }}>
-    <DetailsStack.Screen
-      name="Details"
-      component={DetailsScreen}
-      options={{
-        headerLeft: () => (
-          <Icon.Button
-            name="bars"
-            size={20}
-            backgroundColor="#008397"
-            onPress={() => {
-              navigation.openDrawer();
-            }}></Icon.Button>
-        ),
-      }}
-    />
-  </DetailsStack.Navigator>
-);
 
 const App = () => {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeStackScreen} />
-        <Drawer.Screen name="Details" component={DetailsStackScreen} />
+        <Drawer.Screen name="Home" component={MainTabScreen} />
+        {/* <Drawer.Screen name="Details" component={DetailsStackScreen} /> */}
       </Drawer.Navigator>
     </NavigationContainer>
   );
