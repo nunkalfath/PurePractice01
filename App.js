@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import 'react-native-gesture-handler';
-import Icon from 'react-native-vector-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 // import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -36,9 +36,9 @@ const HomeStackScreen = ({navigation}) => (
         title: 'Overview',
         headerleft: () => (
           <Icon.Button
-            name="close"
+            name="bars"
             size={20}
-            backgroundColor="white"
+            backgroundColor="#008397"
             onPress={() => {
               navigation.openDrawer();
             }}></Icon.Button>

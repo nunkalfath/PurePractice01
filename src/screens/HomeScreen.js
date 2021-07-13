@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
-import {Icon} from 'react-native-vector-icons/Icon/FontAwesome';
+import {Button, StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = props => {
   const {navigation} = props;
@@ -15,9 +15,9 @@ const HomeScreen = props => {
         }}
       />
       <Icon.Button
-        name="close"
+        name="bars"
         size={20}
-        backgroundColor="white"
+        backgroundColor="#008397"
         onPress={() => {
           navigation.openDrawer();
         }}></Icon.Button>
