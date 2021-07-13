@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
+import {Icon} from 'react-native-vector-icons/Icon/FontAwesome';
 
 const HomeScreen = props => {
   const {navigation} = props;
@@ -13,6 +14,13 @@ const HomeScreen = props => {
           console.log('Tombol tertekan');
         }}
       />
+      <Icon.Button
+        name="close"
+        size={20}
+        backgroundColor="white"
+        onPress={() => {
+          navigation.openDrawer();
+        }}></Icon.Button>
     </View>
   );
 };
