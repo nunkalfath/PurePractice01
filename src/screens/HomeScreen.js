@@ -18,7 +18,7 @@ const HomeScreen = props => {
       <Icon.Button
         name="close"
         size={20}
-        backgroundColor="white"
+        backgroundColor="red"
         onPress={() => {
           navigation.openDrawer();
         }}></Icon.Button>
