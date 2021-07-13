@@ -1,14 +1,11 @@
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-
-import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import DetailsScreen from './DetailsScreen';
+import ExploreScreen from './ExploreScreen';
 import HomeScreen from './HomeScreen';
 import ProfileScreen from './ProfileScreen';
-import ExploreScreen from './ExploreScreen';
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
@@ -86,13 +83,13 @@ const HomeStackScreen = ({navigation}) => (
       options={{
         title: 'Overview',
         headerLeft: () => (
-          <Icon.Button
-            name="bars"
+          <MaterialCommunityIcons.Button
+            name="menu"
             size={20}
             backgroundColor="#008397"
             onPress={() => {
               navigation.openDrawer();
-            }}></Icon.Button>
+            }}></MaterialCommunityIcons.Button>
         ),
       }}
     />
@@ -116,13 +113,13 @@ const DetailsStackScreen = ({navigation}) => (
       component={DetailsScreen}
       options={{
         headerLeft: () => (
-          <Icon.Button
-            name="bars"
+          <MaterialCommunityIcons.Button
+            name="menu"
             size={20}
             backgroundColor="#1f65ff"
             onPress={() => {
               navigation.openDrawer();
-            }}></Icon.Button>
+            }}></MaterialCommunityIcons.Button>
         ),
       }}
     />
@@ -146,13 +143,13 @@ const ProfileStackScreen = ({navigation}) => (
       component={ProfileScreen}
       options={{
         headerLeft: () => (
-          <Icon.Button
-            name="bars"
+          <MaterialCommunityIcons.Button
+            name="menu"
             size={20}
             backgroundColor="#694fad"
             onPress={() => {
               navigation.openDrawer();
-            }}></Icon.Button>
+            }}></MaterialCommunityIcons.Button>
         ),
       }}
     />
@@ -176,13 +173,13 @@ const ExploreStackScreen = ({navigation}) => (
       component={ExploreScreen}
       options={{
         headerLeft: () => (
-          <Icon.Button
-            name="bars"
+          <MaterialCommunityIcons.Button
+            name="menu"
             size={20}
             backgroundColor="#d02860"
             onPress={() => {
               navigation.openDrawer();
-            }}></Icon.Button>
+            }}></MaterialCommunityIcons.Button>
         ),
       }}
     />

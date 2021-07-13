@@ -1,6 +1,5 @@
 import React from 'react';
-import {Button, StyleSheet, Text, View, SafeAreaView} from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import {Button, Text, View} from 'react-native';
 
 const HomeScreen = props => {
   const {navigation} = props;
