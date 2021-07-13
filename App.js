@@ -9,8 +9,8 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import HomeScreen from './src/screens/HomeScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
-import SettingsScreen from './src/screens/SettingsScreen';
-import ExploreScreen from './src/screens/ExploreScreen';
+// import SettingsScreen from './src/screens/SettingsScreen';
+// import ExploreScreen from './src/screens/ExploreScreen';
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
@@ -34,7 +34,7 @@ const HomeStackScreen = ({navigation}) => (
       component={HomeScreen}
       options={{
         title: 'Overview',
-        headerleft: () => (
+        headerLeft: () => (
           <Icon.Button
             name="bars"
             size={20}
@@ -64,9 +64,9 @@ const DetailsStackScreen = ({navigation}) => (
       name="Details"
       component={DetailsScreen}
       options={{
-        headerleft: () => (
+        headerLeft: () => (
           <Icon.Button
-            name="award"
+            name="bars"
             size={20}
             backgroundColor="#008397"
             onPress={() => {
@@ -98,14 +98,5 @@ export default App;
 //       <Tab.Screen name="Settings" component={SettingsScreen} />
 //       <Tab.Screen name="Explore" component={ExploreScreen} />
 //     </Tab.Navigator>
-//   );
-// };
-
-// const DrawerNavigation = () => {
-//   return (
-//     <Drawer.Navigator>
-//       <Drawer.Screen name="Home" component={HomeScreen} />
-//       <Drawer.Screen name="Details" component={DetailsScreen} />
-//     </Drawer.Navigator>
 //   );
 // };
