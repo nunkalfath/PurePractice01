@@ -31,7 +31,7 @@ const MainTabScreen = ({navigation}) => (
       name="Notifications"
       component={DetailsStackScreen}
       options={{
-        tabBarLabel: 'Details',
+        tabBarLabel: 'Updates',
         tabBarColor: '#1f65ff',
         tabBarIcon: ({color}) => (
           <MaterialCommunityIcons name="bell" color={color} size={26} />

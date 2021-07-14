@@ -4,9 +4,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import 'react-native-gesture-handler';
 import MainTabScreen from './src/screens/MainTabScreen';
+import SupportScreen from './src/screens/SupportScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
 import {DrawerContent} from './src/screens/DrawerContent';
 
-const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 const App = () => {
@@ -14,7 +15,8 @@ const App = () => {
     <NavigationContainer>
       <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
         <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
-        {/* <Drawer.Screen name="Details" component={DetailsStackScreen} /> */}
+        {/* <Drawer.Screen name="Support" component={SupportScreen} /> */}
+        <Drawer.Screen name="Settings" component={SettingsScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

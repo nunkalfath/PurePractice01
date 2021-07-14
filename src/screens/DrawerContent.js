@@ -61,7 +61,9 @@ export function DrawerContent(props) {
                 <MaterialCommunityIcons name="home" color={color} size={size} />
               )}
               label="Home"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('Home');
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
@@ -72,7 +74,9 @@ export function DrawerContent(props) {
                 />
               )}
               label="Profile"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('Profile');
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
@@ -82,8 +86,10 @@ export function DrawerContent(props) {
                   size={size}
                 />
               )}
-              label="Bookmark"
-              onPress={() => {}}
+              label="Bookmarks"
+              onPress={() => {
+                props.navigation.navigate('BookmarkScreen');
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
@@ -94,7 +100,9 @@ export function DrawerContent(props) {
                 />
               )}
               label="Settings"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('SettingsScreen');
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
@@ -105,7 +113,9 @@ export function DrawerContent(props) {
                 />
               )}
               label="Support"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('SupportScreen');
+              }}
             />
           </Drawer.Section>
           <Drawer.Section title="Preference">
