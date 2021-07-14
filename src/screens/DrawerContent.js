@@ -88,7 +88,7 @@ export function DrawerContent(props) {
               )}
               label="Bookmarks"
               onPress={() => {
-                props.navigation.navigate('BookmarkScreen');
+                props.navigation.navigate('Bookmarks');
               }}
             />
             <DrawerItem
@@ -101,7 +101,7 @@ export function DrawerContent(props) {
               )}
               label="Settings"
               onPress={() => {
-                props.navigation.navigate('SettingsScreen');
+                props.navigation.navigate('Settings');
               }}
             />
             <DrawerItem
@@ -114,7 +114,7 @@ export function DrawerContent(props) {
               )}
               label="Support"
               onPress={() => {
-                props.navigation.navigate('SupportScreen');
+                props.navigation.navigate('Support');
               }}
             />
           </Drawer.Section>
