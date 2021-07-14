@@ -1,5 +1,5 @@
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import DetailsScreen from './DetailsScreen';
@@ -56,7 +56,7 @@ const MainTabScreen = ({navigation}) => (
         tabBarLabel: 'Explore',
         tabBarColor: '#d02860',
         tabBarIcon: ({color}) => (
-          <MaterialCommunityIcons name="menu" color={color} size={26} />
+          <MaterialCommunityIcons name="magnify" color={color} size={26} />
         ),
       }}
     />

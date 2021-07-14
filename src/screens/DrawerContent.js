@@ -14,6 +14,11 @@ import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export function DrawerContent(props) {
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
+
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
@@ -36,13 +41,17 @@ export function DrawerContent(props) {
                 <Paragraph style={(styles.paragraph, styles.caption)}>
                   80
                 </Paragraph>
-                <Caption style={styles.caption}>Following</Caption>
+                <Caption style={(styles.caption, styles.newcap)}>
+                  Following
+                </Caption>
               </View>
               <View style={styles.section}>
                 <Paragraph style={(styles.paragraph, styles.caption)}>
                   100
                 </Paragraph>
-                <Caption style={styles.caption}>Followers</Caption>
+                <Caption style={(styles.caption, styles.newcap)}>
+                  Followers
+                </Caption>
               </View>
             </View>
           </View>
@@ -68,6 +77,17 @@ export function DrawerContent(props) {
             <DrawerItem
               icon={({color, size}) => (
                 <MaterialCommunityIcons
+                  name="bookmark"
+                  color={color}
+                  size={size}
+                />
+              )}
+              label="Bookmark"
+              onPress={() => {}}
+            />
+            <DrawerItem
+              icon={({color, size}) => (
+                <MaterialCommunityIcons
                   name="tools"
                   color={color}
                   size={size}
@@ -78,11 +98,28 @@ export function DrawerContent(props) {
             />
             <DrawerItem
               icon={({color, size}) => (
-                <MaterialCommunityIcons name="book" color={color} size={size} />
+                <MaterialCommunityIcons
+                  name="face-agent"
+                  color={color}
+                  size={size}
+                />
               )}
-              label="Bookmark"
+              label="Support"
               onPress={() => {}}
             />
+          </Drawer.Section>
+          <Drawer.Section title="Preference">
+            <TouchableRipple
+              onPress={() => {
+                toggleTheme();
+              }}>
+              <View style={styles.preference}>
+                <Text>Dark Theme</Text>
+                <View pointerEvents="none">
+                  <Switch value={isDarkTheme} />
+                </View>
+              </View>
+            </TouchableRipple>
           </Drawer.Section>
         </View>
       </DrawerContentScrollView>
@@ -118,6 +155,9 @@ const styles = StyleSheet.create({
   caption: {
     fontSize: 14,
     lineHeight: 14,
+  },
+  newcap: {
+    marginLeft: 5,
   },
   row: {
     marginTop: 20,
