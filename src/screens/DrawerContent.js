@@ -118,7 +118,7 @@ export function DrawerContent(props) {
               }}
             />
           </Drawer.Section>
-          <Drawer.Section title="Preference">
+          <Drawer.Section title="Preferences">
             <TouchableRipple
               onPress={() => {
                 toggleTheme();
