@@ -1,23 +1,19 @@
 import React from 'react';
 import {
-  View,
-  Text,
-  Button,
-  StyleSheet,
-  Dimensions,
-  Image,
-  TouchableOpacity,
+  Dimensions, StyleSheet, Text, TouchableOpacity, View
 } from 'react-native';
-import {grey100} from 'react-native-paper/lib/typescript/styles/colors';
+import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text>header</Text>
-        <Image
+        <Animatable.Image
+          animation="bounceIn"
+          duraton="1500 "
           source={require('../assets/images/logo.png')}
           style={styles.logo}
           resizeMode="stretch"
@@ -26,14 +22,11 @@ const SplashScreen = () => {
           fish clipart png from pngtree.com
         </Text>
       </View>
-      <View style={styles.footer}>
+      <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.title}>Stay connected with everyone!</Text>
         <Text style={styles.text}>Sign in with account</Text>
         <View style={styles.button}>
-          <TouchableOpacity
-            onPress={() => {
-              alert('Click!');
-            }}>
+          <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}>
             <LinearGradient
               colors={['#08d4c4', '#01ab9d']}
               style={styles.signIn}>
@@ -42,7 +35,7 @@ const SplashScreen = () => {
             </LinearGradient>
           </TouchableOpacity>
         </View>
-      </View>
+      </Animatable.View>
       {/* <Text>Splash Screen</Text>
       <Button title="Click Here" onPress={() => alert('Button Clicked!')} /> */}
     </View>
