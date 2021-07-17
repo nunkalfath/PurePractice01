@@ -1,6 +1,10 @@
 import React from 'react';
 import {
-  Dimensions, StyleSheet, Text, TouchableOpacity, View
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';

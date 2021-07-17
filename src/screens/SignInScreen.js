@@ -1,20 +1,17 @@
 import React from 'react';
 import {
-  View,
-  Text,
-  Button,
-  Dimensions,
-  StyleSheet,
   Platform,
-  TouchableOpacity,
-  TextInput,
   StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({
