@@ -8,6 +8,7 @@ import SupportScreen from './src/screens/SupportScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
 import BookmarkScreen from './src/screens/BookmarkScreen';
 import RootStackScreen from './src/screens/RootStackScreen';
+import InungScreen from './src/screens/InungScreen';
 
 import {DrawerContent} from './src/screens/DrawerContent';
 
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <RootStackScreen />
+
       {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
         <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
         <Drawer.Screen name="Support" component={SupportScreen} />
