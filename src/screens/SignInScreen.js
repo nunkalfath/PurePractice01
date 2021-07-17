@@ -8,6 +8,7 @@ import {
   Platform,
   TouchableOpacity,
   TextInput,
+  StatusBar,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
@@ -52,10 +53,12 @@ const SignInScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#008397" barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.text_header}>Welcome</Text>
       </View>
-      <View style={styles.footer}>
+
+      <Animatable.View animation="fadeInUpBig" style={styles.footer}>
         <Text style={styles.text_footer}>Email</Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color="#05375a" size={20} />
@@ -71,6 +74,7 @@ const SignInScreen = ({navigation}) => {
             </Animatable.View>
           ) : null}
         </View>
+
         <Text style={[styles.text_footer, {marginTop: 35}]}>Password</Text>
         <View style={styles.action}>
           <FontAwesome name="lock" color="#05375a" size={20} />
@@ -89,6 +93,7 @@ const SignInScreen = ({navigation}) => {
             )}
           </TouchableOpacity>
         </View>
+
         <View style={styles.button}>
           <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn}>
             <Text style={[styles.textSign, {color: '#fff'}]}>Sign In</Text>
@@ -102,7 +107,7 @@ const SignInScreen = ({navigation}) => {
             <Text style={[styles.textSign, {color: '#009387'}]}>Sign Up</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </Animatable.View>
     </View>
   );
 };
