@@ -14,7 +14,6 @@ const SplashScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>header</Text>
         <Animatable.Image
           animation="bounceIn"
           duraton="1500 "
@@ -26,6 +25,7 @@ const SplashScreen = ({navigation}) => {
           fish clipart png from pngtree.com
         </Text>
       </View>
+
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.title}>Stay connected with everyone!</Text>
         <Text style={styles.text}>Sign in with account</Text>
@@ -40,6 +40,7 @@ const SplashScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </Animatable.View>
+
       {/* <Text>Splash Screen</Text>
       <Button title="Click Here" onPress={() => alert('Button Clicked!')} /> */}
     </View>

@@ -13,6 +13,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+import {AuthContext} from '../../components/context';
+
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({
     email: '',
@@ -20,6 +22,9 @@ const SignInScreen = ({navigation}) => {
     check_textInputChange: false,
     secureTextEntry: true,
   });
+
+  const {signIn} = React.useContext(AuthContext);
+
   const textInputChange = val => {
     if (val.length !== 0) {
       setData({
