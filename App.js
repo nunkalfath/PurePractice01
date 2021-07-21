@@ -1,18 +1,22 @@
+import React, {useEffect} from 'react';
+import {View, ActivityIndicator} from 'react-native';
+import 'react-native-gesture-handler';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
-import React from 'react';
-import {View, Text} from 'react-native';
-import {ActivityIndicator} from 'react-native';
-import 'react-native-gesture-handler';
-import RootStackScreen from './src/screens/RootStackScreen';
-import {useEffect} from 'react';
+import {DrawerContent} from './src/screens/DrawerContent';
 import {AuthContext} from './components/context';
+
+import RootStackScreen from './src/screens/RootStackScreen';
+import MainTabScreen from './src/screens/MainTabScreen';
+import SupportScreen from './src/screens/SupportScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+import BookmarkScreen from './src/screens/BookmarkScreen';
 
 const Drawer = createDrawerNavigator();
 
 const App = () => {
   const [isLoading, setIsLoading] = React.useState(true);
-  const [userTokern, setUserToken] = React.useState(null);
+  const [userToken, setUserToken] = React.useState(null);
 
   const authContext = React.useMemo(() => ({
     signIn: () => {
@@ -45,13 +49,17 @@ const App = () => {
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        <RootStackScreen />
-        {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-        <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
-        <Drawer.Screen name="Support" component={SupportScreen} />
-        <Drawer.Screen name="Settings" component={SettingsScreen} />
-        <Drawer.Screen name="Bookmarks" component={BookmarkScreen} />
-      </Drawer.Navigator> */}
+        {userToken !== null ? (
+          <Drawer.Navigator
+            drawerContent={props => <DrawerContent {...props} />}>
+            <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+            <Drawer.Screen name="Support" component={SupportScreen} />
+            <Drawer.Screen name="Settings" component={SettingsScreen} />
+            <Drawer.Screen name="Bookmarks" component={BookmarkScreen} />
+          </Drawer.Navigator>
+        ) : (
+          <RootStackScreen />
+        )}
       </NavigationContainer>
     </AuthContext.Provider>
   );

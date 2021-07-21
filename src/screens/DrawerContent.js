@@ -13,8 +13,13 @@ import {
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import {AuthContext} from '../../components/context';
+
 export function DrawerContent(props) {
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+
+  const {signOut} = React.useContext(AuthContext);
+
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
@@ -153,6 +158,7 @@ export function DrawerContent(props) {
 const styles = StyleSheet.create({
   drawerContent: {
     flex: 1,
+    // backgroundColor: '#87AFC7',
   },
   userInfoSection: {
     paddingLeft: 20,

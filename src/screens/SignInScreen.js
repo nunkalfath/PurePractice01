@@ -96,10 +96,24 @@ const SignInScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
+        <TouchableOpacity>
+          <Text style={{color: '#009387', marginTop: 15}}>
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
+
         <View style={styles.button}>
-          <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn}>
-            <Text style={[styles.textSign, {color: '#fff'}]}>Sign In</Text>
-          </LinearGradient>
+          <TouchableOpacity
+            style={styles.signIn}
+            onPress={() => {
+              signIn();
+            }}>
+            <LinearGradient
+              colors={['#08d4c4', '#01ab9d']}
+              style={styles.signIn}>
+              <Text style={[styles.textSign, {color: '#fff'}]}>Sign In</Text>
+            </LinearGradient>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate('SignUpScreen')}
             style={[
