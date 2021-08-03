@@ -148,7 +148,9 @@ export function DrawerContent(props) {
             />
           )}
           label="Sign Out"
-          onPress={() => {}}
+          onPress={() => {
+            signOut();
+          }}
         />
       </Drawer.Section>
     </View>
