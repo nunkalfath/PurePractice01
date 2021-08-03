@@ -1,12 +1,19 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
 
-const Account = () => {
+const Bookmarks = ({navigation}) => {
   return (
-    <View>
-      <Text>My Account</Text>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>My Bookmarks</Text>
+      <Button
+        title="Go to Home"
+        onPress={() => {
+          navigation.navigate('Home');
+          console.log('Kembali ke Home');
+        }}
+      />
     </View>
   );
 };
 
-export default Account;
+export default Bookmarks;
