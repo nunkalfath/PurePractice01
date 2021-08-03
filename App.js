@@ -65,20 +65,19 @@ const App = () => {
 
   const authContext = React.useMemo(
     () => ({
-      signIn: async (userName, password) => {
-        console.log({userName}, {password});
+      signIn: async foundUser => {
+        // console.log({ userName }, { password });
         // setUserToken('inung');
         // setIsLoading(false);
-        let userToken;
-        userToken = null;
-        if (userName == 'user' && password == 'pass') {
-          try {
-            userToken = 'Inung';
-            await AsyncStorage.setItem('userToken', userToken);
-          } catch (e) {
-            console.log(e);
-          }
+        // let userToken;
+        const userToken = String(foundUser[0].userToken);
+        const userName = foundUser[0].username;
+        try {
+          await AsyncStorage.setItem('userToken', userToken);
+        } catch (e) {
+          console.log(e);
         }
+
         // console.log('user token: ', userToken);
         dispatch({type: 'LOGIN', id: userName, token: userToken});
       },
@@ -123,7 +122,7 @@ const App = () => {
       </View>
     );
   }
-  
+
   return (
     <AuthContext.Provider value={authContext}>
       <NavigationContainer>

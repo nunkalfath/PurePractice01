@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Alert,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
@@ -14,6 +15,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {AuthContext} from '../../components/context';
+
+import users from '../../model/users';
 
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({
@@ -80,9 +83,18 @@ const SignInScreen = ({navigation}) => {
     }
   };
 
-  const loginHandle = (username, password) => {
-    console.log({username}, {password});
-    signIn(username, password);
+  const loginHandle = (userName, password) => {
+    const foundUser = users.filter(item => {
+      return userName == item.username && password == item.password;
+    });
+    if (foundUser.length == 0) {
+      Alert.alert('Invalid User!', 'Username or password is incorrect', [
+        {text: 'Okay'},
+      ]);
+      return;
+    }
+    // console.log({username}, {password});
+    signIn(foundUser);
   };
 
   return (
