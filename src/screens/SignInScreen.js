@@ -61,7 +61,7 @@ const SignInScreen = ({navigation}) => {
         isValidPassword: false,
       });
     }
-  };
+  }; 
   const updateSecureTextEntry = () => {
     setData({
       ...data,

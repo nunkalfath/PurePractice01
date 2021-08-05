@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View, ActivityIndicator} from 'react-native';
+import {View, ActivityIndicator, Text} from 'react-native';
 import 'react-native-gesture-handler';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
@@ -111,14 +111,15 @@ const App = () => {
         console.log(e);
       }
       // console.log('user token: ', userToken);
-      dispatch({type: 'RETRIEVE_TOKEN', token: 'Inung'});
+      dispatch({type: 'RETRIEVE_TOKEN', token: "Inung"});
     }, 1000);
   }, []);
 
   if (loginState.isLoading) {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size="large" />
+        {/* <ActivityIndicator size="large" /> */}
+        <Text>LOADING Aplikasi</Text>
       </View>
     );
   }
