@@ -6,6 +6,7 @@ export default class akucoba extends Component {
     return (
       <View>
         <Text> textInComponent </Text>
+        <Text>Text</Text>
       </View>
     );
   }
