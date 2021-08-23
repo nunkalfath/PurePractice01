@@ -16,13 +16,11 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {AuthContext} from '../../components/context';
 
 export function DrawerContent(props) {
-  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+  const {signOut, toggleTheme, isDarkTheme} = React.useContext(AuthContext);
 
-  const {signOut} = React.useContext(AuthContext);
-
-  const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-  };
+  // const toggleTheme = () => {
+  //   setIsDarkTheme(!isDarkTheme);
+  // };
 
   return (
     <View style={{flex: 1}}>

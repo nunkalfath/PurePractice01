@@ -2,9 +2,14 @@ import React, {useEffect} from 'react';
 import {View, ActivityIndicator, Text} from 'react-native';
 import 'react-native-gesture-handler';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import {DrawerContent} from './src/screens/DrawerContent';
 import {AuthContext} from './components/context';
+
+import {
+  Provider as PaperProvider,
+  DarkTheme as PaperDarkTheme,
+} from 'react-native-paper';
 
 import RootStackScreen from './src/screens/RootStackScreen';
 import MainTabScreen from './src/screens/MainTabScreen';
@@ -19,6 +24,8 @@ const Drawer = createDrawerNavigator();
 const App = () => {
   // const [isLoading, setIsLoading] = React.useState(true);
   // const [userToken, setUserToken] = React.useState(null);
+
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
 
   const initialLoginState = {
     isLoading: true,
@@ -96,8 +103,12 @@ const App = () => {
         // setUserToken('inung');
         // setIsLoading(false);
       },
+      toggleTheme: () => {
+        setIsDarkTheme( isDarkTheme => !isDarkTheme );
+      },
+      isDarkTheme,
     }),
-    [],
+    [isDarkTheme],
   );
 
   useEffect(() => {
@@ -111,7 +122,7 @@ const App = () => {
         console.log(e);
       }
       // console.log('user token: ', userToken);
-      dispatch({type: 'RETRIEVE_TOKEN', token: "Inung"});
+      dispatch({type: 'RETRIEVE_TOKEN', token: 'Inung'});
     }, 1000);
   }, []);
 
@@ -125,21 +136,23 @@ const App = () => {
   }
 
   return (
-    <AuthContext.Provider value={authContext}>
-      <NavigationContainer>
-        {loginState.userToken !== null ? (
-          <Drawer.Navigator
-            drawerContent={props => <DrawerContent {...props} />}>
-            <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
-            <Drawer.Screen name="Support" component={SupportScreen} />
-            <Drawer.Screen name="Settings" component={SettingsScreen} />
-            <Drawer.Screen name="Bookmarks" component={BookmarkScreen} />
-          </Drawer.Navigator>
-        ) : (
-          <RootStackScreen />
-        )}
-      </NavigationContainer>
-    </AuthContext.Provider>
+    <PaperProvider theme={PaperDarkTheme}>
+      <AuthContext.Provider value={authContext}>
+        <NavigationContainer theme={DarkTheme}>
+          {loginState.userToken !== null ? (
+            <Drawer.Navigator
+              drawerContent={props => <DrawerContent {...props} />}>
+              <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+              <Drawer.Screen name="Support" component={SupportScreen} />
+              <Drawer.Screen name="Settings" component={SettingsScreen} />
+              <Drawer.Screen name="Bookmarks" component={BookmarkScreen} />
+            </Drawer.Navigator>
+          ) : (
+            <RootStackScreen />
+          )}
+        </NavigationContainer>
+      </AuthContext.Provider>
+    </PaperProvider>
   );
 };
 
